@@ -4,7 +4,10 @@ import {
   createAppContainer,
   createMaterialTopTabNavigator
 } from "react-navigation";
-import IndexTab from "../Pages/IndexTab";
+import Scenic from "../Pages/scenic";
+import Hotel from "../Pages/hotel";
+import Gourmet from "../Pages/gourmet";
+import Travel from "../Pages/travel";
 import { connect } from "react-redux";
 import navigationUtil from "../Navigator/navigationUtil";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -22,48 +25,48 @@ class IndexPage extends Component {
   }
   _genTabs() {
 
-   var  tabs={
+   const  tabs={
       tab1:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <IndexTab {...props} tabName={'ios'} />
+          return <Scenic {...props} tabName={'景点'}  />
         },
         navigationOptions: {
-          title: "ios",
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
-          )
+            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
+          ),
+          tabBarLabel:<Text style={styles.tabtile}>景点</Text>
         }
       },
       tab2:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <IndexTab {...props} tabName={'ios'} />
+          return <Hotel {...props} tabName={'酒店'} />
         },
         navigationOptions: {
-          title: "ios",
+          tabBarLabel:<Text style={styles.tabtile}>酒店</Text>,
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
           )
         }
       },
       tab3:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <IndexTab {...props} tabName={'ios'} />
+          return <Gourmet {...props} tabName={'美食林'} />
         },
         navigationOptions: {
-          title: "ios",
+          tabBarLabel:<Text style={styles.tabtile}>美食林</Text>,
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+            <FontAwesome name={"home"} size={26}   style={{ color: "blue" }} />
           )
         }
       },
       tab4:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <IndexTab {...props} tabName={'ios'} />
+          return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
         },
         navigationOptions: {
-          title: "ios",
+          tabBarLabel:<Text style={styles.tabtile}>行程路线</Text>,
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
           )
         }
       }
@@ -88,19 +91,27 @@ class IndexPage extends Component {
     // const TabBackground = this.props.theme;
     const TabNavigator = createAppContainer(
       createMaterialTopTabNavigator(this._genTabs(), {
+        // swipeEnabled:true,//是否允许在标签页之间进行滑动。
         tabBarOptions: {
-          tabStyle: {},
+         
+          labelStyle:{
+            fontSize:12
+          },
+          tabStyle: {
+            width:120,
+          },
           showIcon:true,
-          upperCaseLabel: false,
+          // upperCaseLabel: false,
           scrollEnabled: true,
+          // this.props.theme
           style: {
-            backgroundColor: this.props.theme
+            backgroundColor: "#ccc"
           }
         }
       })
     );
     return (
-      <View style={{ flex: 1, marginTop: 30 }}>
+      <View style={{ flex: 1, marginTop: 50 }}>
         <TabNavigator />
       </View>
     );
@@ -118,6 +129,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     margin: 10
+  },
+  tabtile:{
+    //  backgroundColor:"black",
+    marginTop: 5,
+     color:"black"
   }
 });
 
