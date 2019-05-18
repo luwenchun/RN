@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View ,Button} from "react-native";
-import { onThemeChange } from "../Actions/theme";
+import { onThemeChange,onAnsyChange } from "../Actions/theme";
 import { connect } from "react-redux";
 class VideoPage extends Component {
   constructor(props){
@@ -14,19 +14,19 @@ class VideoPage extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome} >Welcome to 视频页面!{this.props.theme}{this.props.num}</Text>
         <Button
-          title={"修改视频页面状态"}
+          title={"修改视频页面状态+1"}
           onPress={() => {
-            this.props.onThemeChanges("#000");
+            this.props.onThemeChanges(this.props.theme);
             // navigationUtil.goPage(this.props, "DetailPage");
           }}
         />
-         {/* <Button
-          title={"异步修改视频页面状态"}
+         <Button
+          title={"异步修改视频页面状态+99"}
           onPress={() => {
-            this.props.onAnsyChanges("#000");
+            this.props.onAnsyChanges("99");
             // navigationUtil.goPage(this.props, "DetailPage");
           }}
-        /> */}
+        />
       </View>
     );
   }
@@ -48,10 +48,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   theme: state.theme.theme,
-  num:state.theme.num
+  num:state.theme.num,
 });
-const mapDispatchToProps = dispatch => ({
-
-  onThemeChanges: theme => dispatch(onThemeChange(theme))
-});
+const mapDispatchToProps = dispatch => {
+    return {
+      onAnsyChanges:num=>dispatch(onAnsyChange(num)),
+      onThemeChanges: num => dispatch(onThemeChange(num)),
+      
+    }
+ 
+};
 export default connect(mapStateToProps, mapDispatchToProps)(VideoPage);
