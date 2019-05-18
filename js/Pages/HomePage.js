@@ -51,7 +51,13 @@ export default class HomePage extends Component {
     console.disableYellowBox = true;
   }
   _TabNavigator() {
-    return createAppContainer(createBottomTabNavigator(TABS));
+    return createAppContainer(createBottomTabNavigator(TABS,{
+      tabBarOptions: {
+        style: {
+          backgroundColor: "#ccc"
+        }
+      }
+    }));
   }
   render() {
     navigationUtil.navigation = this.props.navigation;
