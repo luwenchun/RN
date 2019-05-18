@@ -94,18 +94,24 @@ class IndexPage extends Component {
         // swipeEnabled:true,//是否允许在标签页之间进行滑动。
         tabBarOptions: {
          
-          labelStyle:{
-            fontSize:12
+          labelStyle:{//字体
+            fontSize:12,
+            marginTop:4,
+            marginBottom: 4,
           },
-          tabStyle: {
+          tabStyle: {//
             width:120,
           },
           showIcon:true,
-          // upperCaseLabel: false,
-          scrollEnabled: true,
+          upperCaseLabel: false,//英文首字母大写
+          scrollEnabled: true,//是否允许滑动切换
           // this.props.theme
           style: {
             backgroundColor: "#ccc"
+          },
+          indicatorStyle:{
+            height:2,
+            backgroundColor:"red"
           }
         }
       })
