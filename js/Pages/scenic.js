@@ -31,12 +31,12 @@ class IndexTab extends Component {
             uri: "https://img.alicdn.com/tps/i4/TB1vDAJQ9zqK1RjSZPxSuw4tVXa.jpg"
           }}
         /> */}
-        {/* <Image
+        <Image
           style={{ width: 100, height: 100 }}
           source={{
-            uri: "https://img.alicdn.com/tps/i4/TB1vDAJQ9zqK1RjSZPxSuw4tVXa.jpg"
+            uri: "http://images4.c-ctrip.com/target/200h0a0000004ddlc7A8B_550_412.jpg"
           }}
-        /> */}
+        />
       </View>
     );
   }
