@@ -53,7 +53,8 @@ function RenderItemFlatList(datavalue){
           </View>
           {/* 点击跳转 */}
           {/* onPress={this.Pressdetail.bind(this,item)} */}
-          <TouchableOpacity onPress={(item)=>this.Pressdetail(item)}>
+          {/* onPress={(item)=>this.Pressdetail(item)} */}
+          <TouchableOpacity  onPress={this.Pressdetail.bind(this,item.url)} >
               <View style={styles.rightStyle}>
                 <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
                 
@@ -73,8 +74,8 @@ function RenderItemFlatList(datavalue){
         </View>
   )
 }
-Pressdetail=(data)=>{
-  debugger
+Pressdetail=(url)=>{
+    navigationUtil.goPage({...this.props,url:url}, "DetailPage");
 }
 
 Item=(data)=>{
@@ -182,8 +183,8 @@ const styles = StyleSheet.create({
     flex:1,//告诉容器全屏
     alignItems: 'center',
     justifyContent:'center',
-    borderWidth:2,
-    borderColor: "red",
+    // borderWidth:2,
+    // borderColor: "red",
     
   },
   loading:{
