@@ -206,12 +206,12 @@ const styles = StyleSheet.create({
   rightStyle:{
     flexDirection: 'column',
     height:100,
-    flexGrow: 1,
+    flexGrow: 0,
     flexShrink: 1,
     flexBasis: 'auto',
   },
   titleStyle:{
-    fontSize: 16,
+    fontSize: 17,
     color:'black',
     marginTop: 10,
     marginBottom: 10,
