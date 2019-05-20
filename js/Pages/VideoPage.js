@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View ,Button} from "react-native";
+import { Platform, StyleSheet, Text, View ,Button,Image} from "react-native";
 import { onThemeChange,onAnsyChange } from "../Actions/theme";
 import { connect } from "react-redux";
 class VideoPage extends Component {
@@ -12,6 +12,12 @@ class VideoPage extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <Image
+          style={{ width: 100, height: 100 }}
+          source={{
+            uri: "http://images4.c-ctrip.com/target/200h0a0000004ddlc7A8B_550_412.jpg"
+          }}
+        />
         <Text style={styles.welcome} >Welcome to 视频页面!{this.props.theme}{this.props.num}</Text>
         <Button
           title={"修改视频页面状态+1"}

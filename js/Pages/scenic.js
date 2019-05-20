@@ -1,59 +1,226 @@
 import React, { Component } from "react";
-import { Image, Button, Platform, StyleSheet, Text, View } from "react-native";
+import { Image, Button, Platform, StyleSheet, Text, FlatList,View,SectionList,ActivityIndicator } from "react-native";
 
 import { connect } from "react-redux";
 import { onThemeChange } from "../Actions/theme";
 import navigationUtil from "../Navigator/navigationUtil";
+function RenderItem(props){
+  return(
+       <View style={styles.container}>
+        {props.data.map((item,index)=>{
+            return (
+              
+                <View style={styles.newitem}>
+                 <Image source={{uri:item.thumbnail_pic_s02}} style={styles.imageStyle}/>
+                 <View style={styles.rightStyle}>
+                   <Text style={styles.titleStyle}  selectable>{item.title}</Text>
+                   <Text style={styles.priceStyle}>{item.date}</Text>
+                 </View>
+                </View>
+            )
+        })}
+        </View>
+       
+    )
+}
+function RenderItemFlatList(datavalue){
+  var data=datavalue.data
+  // renderItem={ ({item}) => <Text style={styles.item}>{item.title}</Text>}
+  return(
+  <View style={styles.container}>
+  {/* 类似电话薄分组 */}
+  {/* <SectionList
+          sections={[
+            {title: 'D', data: ['Devin']},
+            {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          keyExtractor={(item, index) => index}
+        /> */}
+       <FlatList
+          ItemSeparatorComponent={()=>{
+          return  <View style={{height:5,backgroundColor:'#ccc'}}></View>
+          }}
+          data={data}
+          renderItem={ ({item,index}) =>
+          <View style={styles.newitem}>
+          <View>
+            {item.firstImg?<Image source={{uri:item.firstImg, cache: 'only-if-cached'}} style={[styles.imageStyle,]}/>:
+                           <Image source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} style={styles.imageStyle}/>
+            }
+          </View>
+          <View style={styles.rightStyle}>
+             <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
+             
+             <View style={styles.author}>
+              
+              <Text >{item.author_name}</Text>
+              </View>
+             <View style={styles.titledesc}>
+              
+             <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>
+             </View>
+           </View>
+          </View>
+        }
+        />
+        </View>
+  )
+
+}
+Item=(data)=>{
+  const {item,index}=data;
+
+  return(
+              <View style={styles.newitem}>
+              {
+               item.firstImg&&<Image source={{uri:item.firstImg}} style={styles.imageStyle}/>
+              }
+              
+               <View style={styles.rightStyle}>
+                 <Text style={styles.titleStyle}  numberOfLines="2" ellipsizeMode="tail" selectable>{item.title}</Text>
+                  <View style={styles.titledesc}>
+                     <Text style={styles.priceStyle}  numberOfLines="3" ellipsizeMode="tail">{item.url}</Text>
+                  </View>
+               </View>
+              </View>
+  )
+}
+
 class IndexTab extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      bookinfo:null,
+      type:"top",//默认头条
+      pno:2,
+      ps:30,
+      dtype:"json",
+      key:"173e0ec3e304227fa4564ecb246be0e5",//新闻
+      key1:'20f14c3e2b76fa51474f9714e3142351',//微信精选
+    }
+  }
+  componentDidMount=()=>{
+    this.fetchBookinfoList()
+  }
+  fetchBookinfoList=()=>{
+   
+    const {pno,ps,dtype,type,key,key1}=this.state;
+    // const  url=`http://v.juhe.cn/toutiao/index?type=${type}&key=${key}`;
+    // const url1= `http://v.juhe.cn/weixin/query?pno=${pno}&ps=${ps}&dtype=${dtype}&key=${key1}`
+
+    const url1= `https://www.easy-mock.com/mock/5ce12a42fd883078f2906591/api/weixin/query`
+    fetch(url1)
+    .then((Response)=>Response.json())
+    .then((Response)=>{
+      let bookinfo=Response.result.data;
+      this.setState({
+        bookinfo:bookinfo
+      })
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+  // renderItem=(data)=>{
+  //   return (
+  //     <View style={styles.container}>
+  //     {
+  //       data.map((item,index)=>{
+  //         return (
+  //                <View style={styles.newitem}>
+  //                 <Image source={{uri:item.thumbnail_pic_s02}} style={styles.imageStyle}/>
+  //                 <View style={styles.rightStyle}>
+  //                   <Text style={styles.titleStyle}>{item.title}</Text>
+  //                   <Text style={styles.priceStyle}>{item.date}</Text>
+  //                 </View>
+  //                </View>
+  //         )
+  //       })
+  //     }
+      
+        
+  //     </View>
+  //   )
+  // }
   render() {
-    const { tabName } = this.props;
-    return (
-      <View style={styles.container}>
-        {/* <Text style={styles.welcome}>Welcome to {tabName}</Text> */}
-        {/* 跳转 */}
-        {/* <Button
-          title={"go to DetailPage"}
-          onPress={() => {
-            navigationUtil.goPage(this.props, "DetailPage");
-          }}
-        /> */}
-        {/* 修改store */}
-        <Button
-          title={"修改视频页面状态"}
-          onPress={() => {
-            this.props.onThemeChange("#000");
-            // navigationUtil.goPage(this.props, "DetailPage");
-          }}
-        />
-        {/* <Image
-          style={{ width: 100, height: 100 }}
-          source={{
-            uri: "https://img.alicdn.com/tps/i4/TB1vDAJQ9zqK1RjSZPxSuw4tVXa.jpg"
-          }}
-        /> */}
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={{
-            uri: "http://images4.c-ctrip.com/target/200h0a0000004ddlc7A8B_550_412.jpg"
-          }}
-        />
-      </View>
-    );
+    var item=this.state.bookinfo
+    if(item){
+      return (
+        // <RenderItem data={item} />
+        <RenderItemFlatList data={item}/>
+      )
+      
+      // this.renderItem(item);
+    }else{
+      return (
+        <View style={styles.loadview}>
+            <Text style={styles.loading}>加载中1.....</Text>
+            <ActivityIndicator size="large" color="#0000ff" />
+        </View>
+      
+      )
+    }
+  
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+   backgroundColor:"white",
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
+  loadview:{
+    flex:1,//告诉容器全屏
+    alignItems: 'center',
+    justifyContent:'center',
+    borderWidth:2,
+    borderColor: "red",
+    
+  },
+  loading:{
+    fontSize: 16,
+  },
+  newitem:{
+    flexDirection: 'row',
+    margin: 10,
+  },
+
+  imageStyle:{
+    width:100,
+    height:100,
+    resizeMode:"cover",
+    borderTopRightRadius:30,//ios不兼容
+    // marginHorizontal: 12,
+  },
+  rightStyle:{
+    flexDirection: 'column',
+    height:100,
+    flex:1,
+  },
+  titleStyle:{
+    fontSize: 18,
+    color:'black',
+    marginTop: 10,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+  author:{
+    flex:1,
+    alignItems: 'flex-end',
+    justifyContent:"flex-end",
+  },
+  titledesc:{
+    flex:1,
+    justifyContent:"flex-end",
+    alignItems: 'flex-end',
+    marginBottom: 5,
+  },
+  priceStyle:{
+    color:"gray",
+    fontSize:16,
+  },
+
 });
 const mapStateToProps = state => ({});
 

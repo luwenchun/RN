@@ -111,7 +111,7 @@ class IndexPage extends Component {
           },
           indicatorStyle:{
             height:2,
-            backgroundColor:"red"
+            backgroundColor:"#ccc"
           }
         }
       })
