@@ -46,28 +46,26 @@ function RenderItemFlatList(datavalue){
           data={data}
           renderItem={ ({item,index}) =>
           <View style={styles.newitem}>
-          <View>
-            {item.firstImg?<Image source={{uri:item.firstImg, cache: 'only-if-cached'}} style={[styles.imageStyle,]}/>:
-                           <Image source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} style={styles.imageStyle}/>
-            }
-          </View>
-          {/* 点击跳转 */}
-          {/* onPress={this.Pressdetail.bind(this,item)} */}
-          {/* onPress={(item)=>this.Pressdetail(item)} */}
-          <TouchableOpacity  onPress={this.Pressdetail.bind(this,item.url)} >
-              <View style={styles.rightStyle}>
-                <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
-                
-                <View style={styles.author}>
-                  
-                  <Text >{item.author_name}</Text>
-                  </View>
-                <View style={styles.titledesc}>
-                  
-                <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>
-                </View>
+              <View style={[styles.imageStyle]}>
+                {item.firstImg?<Image source={{uri:item.firstImg, cache: 'only-if-cached'}} />:
+                              <Image source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} style={styles.imageStyle}/>
+                }
               </View>
-           </TouchableOpacity>
+                {/* 点击跳转 */}
+                {/* onPress={this.Pressdetail.bind(this,item)} */}
+                {/* onPress={(item)=>this.Pressdetail(item)} */}
+                <TouchableOpacity  onPress={this.Pressdetail.bind(this,item.url)} style={styles.rightStyle} >
+                    
+                      <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
+                      <View style={styles.author}>
+                        <Text >{item.author_name}</Text>
+                    </View>
+                      <View style={styles.titledesc}>
+                        
+                      <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>
+                      </View>
+                  
+                </TouchableOpacity>
           </View>
         }
         />
@@ -178,6 +176,7 @@ class IndexTab extends Component {
 const styles = StyleSheet.create({
   container: {
    backgroundColor:"white",
+   flex:1,
   },
   loadview:{
     flex:1,//告诉容器全屏
@@ -200,18 +199,21 @@ const styles = StyleSheet.create({
     height:100,
     resizeMode:"cover",
     borderTopRightRadius:30,//ios不兼容
-    // marginHorizontal: 12,
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: 100,
   },
   rightStyle:{
     flexDirection: 'column',
     height:100,
-    flex:1,
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 'auto',
   },
   titleStyle:{
-    fontSize: 18,
+    fontSize: 16,
     color:'black',
     marginTop: 10,
-    marginRight: 10,
     marginBottom: 10,
   },
   author:{
