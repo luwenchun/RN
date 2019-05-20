@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Button, Platform, StyleSheet, Text, FlatList,View,SectionList,ActivityIndicator } from "react-native";
+import { Image, Button, Platform, StyleSheet, Text, FlatList,View,SectionList,ActivityIndicator,TouchableOpacity } from "react-native";
 
 import { connect } from "react-redux";
 import { onThemeChange } from "../Actions/theme";
@@ -25,6 +25,7 @@ function RenderItem(props){
 }
 function RenderItemFlatList(datavalue){
   var data=datavalue.data
+  // var _this=this;
   // renderItem={ ({item}) => <Text style={styles.item}>{item.title}</Text>}
   return(
   <View style={styles.container}>
@@ -50,25 +51,32 @@ function RenderItemFlatList(datavalue){
                            <Image source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} style={styles.imageStyle}/>
             }
           </View>
-          <View style={styles.rightStyle}>
-             <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
-             
-             <View style={styles.author}>
-              
-              <Text >{item.author_name}</Text>
+          {/* 点击跳转 */}
+          {/* onPress={this.Pressdetail.bind(this,item)} */}
+          <TouchableOpacity onPress={(item)=>this.Pressdetail(item)}>
+              <View style={styles.rightStyle}>
+                <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
+                
+                <View style={styles.author}>
+                  
+                  <Text >{item.author_name}</Text>
+                  </View>
+                <View style={styles.titledesc}>
+                  
+                <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>
+                </View>
               </View>
-             <View style={styles.titledesc}>
-              
-             <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>
-             </View>
-           </View>
+           </TouchableOpacity>
           </View>
         }
         />
         </View>
   )
-
 }
+Pressdetail=(data)=>{
+  debugger
+}
+
 Item=(data)=>{
   const {item,index}=data;
 
