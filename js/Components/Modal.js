@@ -71,18 +71,36 @@ class ModalDemo extends Component {
               <View style={[styles.mp10, styles.btn, { alignItems: 'center' }]}>
                 <Text style={styles.btn_text}>去支付</Text>
               </View> */}
-              <View styles={styles.dialog}>
-                   
-                    {goods.imageUrl?<Image style={styles.Images} source={{uri:goods.imageUrl, cache: 'only-if-cached'}} />:
-                                  <Image style={styles.Images} source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} />
-                    }
-                
-                    <View style={[styles.rightitem]}>
-                      <Text >{goods.title}</Text>
-                      <Text >{goods.price}</Text>
-                      {/* <Text >{goods.subtitle}</Text> */}
+       
+                   <View style={styles.item}>
+                          {goods.imageUrl?<Image style={styles.icon} source={{uri:goods.imageUrl, cache: 'only-if-cached'}} />:
+                                        <Image style={styles.icon} source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} />
+                          }
+                      
+                          <View style={styles.rightItem}>
+                            <Text >{goods.title}</Text>
+                            <View style={styles.price}>
+                               <Text  >{goods.price}</Text>
+                            </View>
+                        
+                            <Text >{goods.subtitle}</Text>
+                          </View>
                     </View>
-              </View>
+                    <View style={styles.item}>
+                    {/* flexGrow: 1,自动平分全部空间 */}
+                          <Text style={{flexGrow: 1,backgroundColor:"red"}}>1</Text>
+                          <Text style={{flexGrow: 2}}>2</Text>
+                          <Text style={{flexGrow: 3,backgroundColor:"red"}}>3</Text>
+                          <Text style={{flexGrow: 4,backgroundColor:"blue"}}>4</Text>
+                    </View>
+                    <View style={styles.item}>
+                        {/* <Text style={{width:200,backgroundColor:"pink"}}>1</Text> */}
+                        {/* flexShrink: 1,不缩放 */}
+                        <Text style={{width:200,backgroundColor:"#ccc",flexShrink: 1,alignSelf: 'flex-end',}}>1</Text>
+                        <Text style={{width:200,backgroundColor:"#aaa",flexShrink: 3,}}>2</Text>
+                        <Text style={{width:200,backgroundColor:"#eee",flexShrink: 3,}}>3</Text>
+                    </View>
+          
               <Text
                 onPress={this.props.setModalVisible.bind(this,false) }
                 style={[styles.close,{fontSize:20,marginTop:0}]}>
@@ -111,7 +129,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     borderRadius: 10,
-    alignItems: 'center',
+    // alignItems: 'center',//显示车票时候需要
   },
   row: {
     alignItems: 'center',
@@ -191,28 +209,26 @@ const styles = StyleSheet.create({
 //     color: '#fff',
 //   },
 // 模态框图片
-dialog:{
-    flexDirection: 'row',
-    flexWrap: 'wrap-reverse',
-    flex:1,
-    // margin: 10,
+
+item:{
+  flexDirection: 'row',
 },
-Images:{
+icon:{
     width:100,
     height:100,
     resizeMode:"cover",
-    borderTopRightRadius:30,//ios不兼容
-    flexGrow: 0,
-    flexShrink: 0,
-    flexBasis: 100,
+    borderRadius:30,//ios不兼容
+    // flexGrow: 0,
+    // flexShrink: 0,
+    // flexBasis: 100,
 },
-rightitem:{
-   flexDirection: 'column',
-    // height:100,
-    flexGrow: 0,
-    flexShrink: 0,
-    flexBasis: 'auto',
-    flexWrap: 'nowrap',
+rightItem:{
+  flex: 1,
+},
+price:{
+  flex:1,
+  justifyContent:'center',
+  alignItems: 'center',
 }
 });
 
