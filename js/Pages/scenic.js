@@ -59,7 +59,7 @@ function RenderItemFlatList(datavalue){
                       <Text style={styles.titleStyle}  numberOfLines={2} ellipsizeMode="tail" selectable>{item.title}</Text>
                       <View style={styles.author}>
                         <Text >{item.author_name}</Text>
-                    </View>
+                      </View>
                       <View style={styles.titledesc}>
                         
                       <Text style={styles.priceStyle}  numberOfLines={1} ellipsizeMode="tail">{item.date}</Text>

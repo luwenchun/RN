@@ -15,13 +15,7 @@ export default class DetailPage extends Component {
       source={{ uri: url }}
       style={{ marginTop: 20 }}
     />
-      // <View style={styles.container}>
-      //   {/* <Text style={styles.welcome}>Welcome to DetailPage!</Text> */}
-      //   <WebView
-      //   source={{uri:"http://mini.eastday.com/mobile/190520090957254.html" }}
-      //   // style={{marginTop: 20}}
-      // />
-      // </View>
+     
     );
   }
 }

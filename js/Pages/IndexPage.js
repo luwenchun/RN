@@ -5,7 +5,7 @@ import {
   createMaterialTopTabNavigator
 } from "react-navigation";
 import Scenic from "../Pages/scenic";
-import Hotel from "../Pages/hotel";
+import Hotel from "./hotel";
 import Gourmet from "../Pages/gourmet";
 import Travel from "../Pages/travel";
 import { connect } from "react-redux";
@@ -26,36 +26,37 @@ class IndexPage extends Component {
   _genTabs() {
 
    const  tabs={
+    tab2:{
+      screen:function(props){//props是redux传递的全局状态通过conner映射
+        return <Hotel {...props} tabName={'酒店'} />
+      },
+      navigationOptions: {
+        tabBarLabel:"酒店",
+        tabBarIcon: ({ tintColor, focused }) => (
+          <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+        )
+      }
+    },
       tab1:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
           return <Scenic {...props} tabName={'景点'}  />
         },
         navigationOptions: {
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
+            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
           ),
-          tabBarLabel:<Text style={styles.tabtile}>景点</Text>
+          tabBarLabel:"景点"
         }
       },
-      tab2:{
-        screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <Hotel {...props} tabName={'酒店'} />
-        },
-        navigationOptions: {
-          tabBarLabel:<Text style={styles.tabtile}>酒店</Text>,
-          tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
-          )
-        }
-      },
+      
       tab3:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
           return <Gourmet {...props} tabName={'美食林'} />
         },
         navigationOptions: {
-          tabBarLabel:<Text style={styles.tabtile}>美食林</Text>,
+          tabBarLabel:"美食林",
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26}   style={{ color: "blue" }} />
+            <FontAwesome name={"home"} size={26}   style={{ color: tintColor }} />
           )
         }
       },
@@ -64,9 +65,20 @@ class IndexPage extends Component {
           return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
         },
         navigationOptions: {
-          tabBarLabel:<Text style={styles.tabtile}>行程路线</Text>,
+          tabBarLabel:"行程路线",
           tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: "blue" }} />
+            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+          )
+        }
+      },
+      tab5:{
+        screen:function(props){//props是redux传递的全局状态通过conner映射
+          return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
+        },
+        navigationOptions: {
+          tabBarLabel:"农家乐",
+          tabBarIcon: ({ tintColor, focused }) => (
+            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
           )
         }
       }
@@ -91,13 +103,18 @@ class IndexPage extends Component {
     // const TabBackground = this.props.theme;
     const TabNavigator = createAppContainer(
       createMaterialTopTabNavigator(this._genTabs(), {
-        // swipeEnabled:true,//是否允许在标签页之间进行滑动。
+        swipeEnabled:true,//是否允许在标签页之间进行滑动。
+        tabBarPosition:"top",
+        lazy:true,
         tabBarOptions: {
-         
+         activeTintColor:'blue',
+         inactiveTintColor:"black",
+         pressColor:"red",
           labelStyle:{//字体
             fontSize:12,
             marginTop:4,
             marginBottom: 4,
+            color: "black",
           },
           tabStyle: {//
             width:120,
@@ -107,7 +124,7 @@ class IndexPage extends Component {
           scrollEnabled: true,//是否允许滑动切换
           // this.props.theme
           style: {
-            backgroundColor: "#ccc"
+            backgroundColor: "white"
           },
           indicatorStyle:{
             height:2,

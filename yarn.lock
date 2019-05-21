@@ -4967,6 +4967,11 @@ react-native-gesture-handler@^1.1.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-refresh-list-view@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npm.taobao.org/react-native-refresh-list-view/download/react-native-refresh-list-view-1.0.10.tgz#4f801e8526f9028d4273f04283506f7a1eda8a0b"
+  integrity sha1-T4AehSb5Ao1Cc/BCg1Bveh7aigs=
+
 react-native-safe-area-view@^0.13.0:
   version "0.13.1"
   resolved "http://registry.npm.taobao.org/react-native-safe-area-view/download/react-native-safe-area-view-0.13.1.tgz#834bbb6d22f76a7ff07de56725ee5667ba1386b0"
@@ -4995,10 +5000,10 @@ react-native-vector-icons@^6.4.2:
     prop-types "^15.6.2"
     yargs "^13.2.2"
 
-react-native@0.59.4:
-  version "0.59.4"
-  resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.59.4.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Freact-native%2Fdownload%2Freact-native-0.59.4.tgz#c0725e2e8efdea135533794ce95fea2289fe619a"
-  integrity sha1-wHJeLo796hNVM3lM6V/qIon+YZo=
+react-native@^0.59.6:
+  version "0.59.8"
+  resolved "https://registry.npm.taobao.org/react-native/download/react-native-0.59.8.tgz#ade4141c777c60f5ec4889d9811d0f80a9d56547"
+  integrity sha1-reQUHHd8YPXsSInZgR0PgKnVZUc=
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^1.2.1"
