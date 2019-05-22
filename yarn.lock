@@ -4958,6 +4958,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
+react-native-actionsheet@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.npm.taobao.org/react-native-actionsheet/download/react-native-actionsheet-2.4.2.tgz#6a00dd51a75ef2c8974312130e405af73191500f"
+  integrity sha1-agDdUade8siXQxITDkBa9zGRUA8=
+
 react-native-gesture-handler@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.1.0.tgz#2a7d545ad2e0ca23adce22b2af441ad360ecccee"
@@ -4972,12 +4977,22 @@ react-native-image-pan-zoom@^2.1.9:
   resolved "https://registry.npm.taobao.org/react-native-image-pan-zoom/download/react-native-image-pan-zoom-2.1.11.tgz#61bcb69219d95e76a9797d23e4a2e8e0bd654ae9"
   integrity sha1-Yby2khnZXnapeX0j5KLo4L1lSuk=
 
+react-native-image-picker@^0.28.1:
+  version "0.28.1"
+  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
+  integrity sha1-ESdGBSLgyXQfxi89BAJx0pj7am4=
+
 react-native-image-zoom-viewer@^2.2.26:
   version "2.2.26"
   resolved "https://registry.npm.taobao.org/react-native-image-zoom-viewer/download/react-native-image-zoom-viewer-2.2.26.tgz#c6f070abb094cfbe1b3b7d8a38ad979a5facbdc5"
   integrity sha1-xvBwq7CUz74bO32KOK2Xml+svcU=
   dependencies:
     react-native-image-pan-zoom "^2.1.9"
+
+react-native-quick-actions@^0.3.10:
+  version "0.3.10"
+  resolved "https://registry.npm.taobao.org/react-native-quick-actions/download/react-native-quick-actions-0.3.10.tgz#14de1e9d7cdc388bb57145b19b7fefc5b4d0716b"
+  integrity sha1-FN4enXzcOIu1cUWxm3/vxbTQcWs=
 
 react-native-refresh-list-view@^1.0.10:
   version "1.0.10"

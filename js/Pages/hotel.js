@@ -32,7 +32,7 @@ class IndexTab extends Component {
   }
   // 模态框function
   setModalVisible = (visible,item) => {
-   
+   debugger
     this.setState({ modalVisible: visible,goods:item });
   }
  
