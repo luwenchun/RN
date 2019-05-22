@@ -73,9 +73,9 @@ class ModalDemo extends Component {
               </View> */}
        
                    <View style={styles.item}>
-                          {goods.imageUrl?<Image style={styles.icon} source={{uri:goods.imageUrl, cache: 'only-if-cached'}} />:
+                          {/* {goods.imageUrl?<Image style={styles.icon} source={{uri:goods.imageUrl, cache: 'only-if-cached'}} />: */}
                                         <Image style={styles.icon} source={require("../img/2V0w13000000vkbetD598_D_296_197.png")} />
-                          }
+                          {/* } */}
                       
                           <View style={styles.rightItem}>
                             <Text >{goods.title}</Text>
@@ -86,20 +86,20 @@ class ModalDemo extends Component {
                             <Text >{goods.subtitle}</Text>
                           </View>
                     </View>
-                    <View style={styles.item}>
-                    {/* flexGrow: 1,自动平分全部空间 */}
+                      {/*<View style={styles.item}>
+                   flexGrow: 1,自动平分全部空间 
                           <Text style={{flexGrow: 1,backgroundColor:"red"}}>1</Text>
                           <Text style={{flexGrow: 2}}>2</Text>
                           <Text style={{flexGrow: 3,backgroundColor:"red"}}>3</Text>
                           <Text style={{flexGrow: 4,backgroundColor:"blue"}}>4</Text>
                     </View>
                     <View style={styles.item}>
-                        {/* <Text style={{width:200,backgroundColor:"pink"}}>1</Text> */}
-                        {/* flexShrink: 1,不缩放 */}
+                        <Text style={{width:200,backgroundColor:"pink"}}>1</Text> 
+                  
                         <Text style={{width:200,backgroundColor:"#ccc",flexShrink: 1,alignSelf: 'flex-end',}}>1</Text>
                         <Text style={{width:200,backgroundColor:"#aaa",flexShrink: 3,}}>2</Text>
                         <Text style={{width:200,backgroundColor:"#eee",flexShrink: 3,}}>3</Text>
-                    </View>
+                    </View>*/}
           
               <Text
                 onPress={this.props.setModalVisible.bind(this,false) }

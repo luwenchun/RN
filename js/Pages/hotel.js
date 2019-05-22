@@ -18,7 +18,7 @@ class IndexTab extends Component {
     this.state={
       dataList: [],
       refreshState: RefreshState.Idle,
-       modalVisible: true,//模态场景是否可见
+       modalVisible: false,//模态场景是否可见
        goods:{
          imageUrl: "",
           price: 10,

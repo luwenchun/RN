@@ -4967,6 +4967,18 @@ react-native-gesture-handler@^1.1.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-image-pan-zoom@^2.1.9:
+  version "2.1.11"
+  resolved "https://registry.npm.taobao.org/react-native-image-pan-zoom/download/react-native-image-pan-zoom-2.1.11.tgz#61bcb69219d95e76a9797d23e4a2e8e0bd654ae9"
+  integrity sha1-Yby2khnZXnapeX0j5KLo4L1lSuk=
+
+react-native-image-zoom-viewer@^2.2.26:
+  version "2.2.26"
+  resolved "https://registry.npm.taobao.org/react-native-image-zoom-viewer/download/react-native-image-zoom-viewer-2.2.26.tgz#c6f070abb094cfbe1b3b7d8a38ad979a5facbdc5"
+  integrity sha1-xvBwq7CUz74bO32KOK2Xml+svcU=
+  dependencies:
+    react-native-image-pan-zoom "^2.1.9"
+
 react-native-refresh-list-view@^1.0.10:
   version "1.0.10"
   resolved "https://registry.npm.taobao.org/react-native-refresh-list-view/download/react-native-refresh-list-view-1.0.10.tgz#4f801e8526f9028d4273f04283506f7a1eda8a0b"
