@@ -614,6 +614,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
+  integrity sha1-WCu1MfX53GfS/LaCl5iU914lPxI=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.0.0", "@babel/template@^7.1.0", "@babel/template@^7.2.2", "@babel/template@^7.4.0":
   version "7.4.0"
   resolved "http://registry.npm.taobao.org/@babel/template/download/@babel/template-7.4.0.tgz#12474e9c077bae585c5d835a95c0b0b790c25c8b"
@@ -4962,6 +4969,14 @@ react-native-actionsheet@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npm.taobao.org/react-native-actionsheet/download/react-native-actionsheet-2.4.2.tgz#6a00dd51a75ef2c8974312130e405af73191500f"
   integrity sha1-agDdUade8siXQxITDkBa9zGRUA8=
+
+react-native-charts-wrapper@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.npm.taobao.org/react-native-charts-wrapper/download/react-native-charts-wrapper-0.5.5.tgz#9891f6020af25dd49598d6a18e4b35ac18953cd7"
+  integrity sha1-mJH2AgryXdSVmNahjks1rBiVPNc=
+  dependencies:
+    prop-types "^15.5.10"
+    react "16.8.3"
 
 react-native-gesture-handler@^1.1.0:
   version "1.1.0"

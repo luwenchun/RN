@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Image, Button, Platform, StyleSheet,  PixelRatio,ScrollView,Text,AppRegistry,TouchableNativeFeedback,TouchableWithoutFeedback,TouchableOpacity,Modal, View } from "react-native";
+import { Image, Button, Platform, StyleSheet,  PixelRatio,processColor,ScrollView,Text,AppRegistry,TouchableNativeFeedback,TouchableWithoutFeedback,TouchableOpacity,Modal, View } from "react-native";
 import ImageViewer from 'react-native-image-zoom-viewer';//图片预览
 import ImagePicker from 'react-native-image-picker';//图片上传
 import  { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'//原生下拉
+import {LineChart} from 'react-native-charts-wrapper';//echart图
 // import   ActionSheet from 'react-native-actionsheet'//原生下拉
 import { connect } from "react-redux";
 import { onThemeChange } from "../Actions/theme";
@@ -204,6 +205,12 @@ handlePress = (buttonIndex) => {
           styles={{messageBox: { height: 60 }}}
         />
       </View>
+      <Text>echart图使用</Text>
+       {/* <View style={styles.echart}>
+          <LineChart style={styles.chart}
+            data={{dataSets:[{label: "demo", values: [{y: 1}, {y: 2}, {y: 1}]}]}}
+          />
+        </View> */}
      
 </View>
   </ScrollView>
@@ -248,6 +255,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff',
     backgroundColor: '#38f'
+  },
+  echart:{
+    height:500,
   }
 });
 const mapStateToProps = state => ({});
