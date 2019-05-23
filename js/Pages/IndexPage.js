@@ -26,6 +26,17 @@ class IndexPage extends Component {
   _genTabs() {
 
    const  tabs={
+       tab4:{
+        screen:function(props){//props是redux传递的全局状态通过conner映射
+          return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
+        },
+        navigationOptions: {
+          tabBarLabel:"行程路线",
+          tabBarIcon: ({ tintColor, focused }) => (
+            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
+          )
+        }
+      },
     tab3:{
       screen:function(props){//props是redux传递的全局状态通过conner映射
         return <Gourmet {...props} tabName={'美食林'} />
@@ -61,17 +72,7 @@ class IndexPage extends Component {
       },
       
     
-      tab4:{
-        screen:function(props){//props是redux传递的全局状态通过conner映射
-          return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
-        },
-        navigationOptions: {
-          tabBarLabel:"行程路线",
-          tabBarIcon: ({ tintColor, focused }) => (
-            <FontAwesome name={"home"} size={26} style={{ color: tintColor }} />
-          )
-        }
-      },
+    
       tab5:{
         screen:function(props){//props是redux传递的全局状态通过conner映射
           return <Travel {...props} tabName={'行程路线'}  style={styles.tab} />
