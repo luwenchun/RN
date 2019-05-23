@@ -4,6 +4,7 @@ import { Image, Button, Platform, StyleSheet, FlatList,Text,RefreshControl,Activ
 import { connect } from "react-redux";
 import { onThemeChange } from "../Actions/theme";
 import navigationUtil from "../Navigator/navigationUtil";
+// import anButton from '@ant-design/react-native/lib/button';
 var CITYS=["北京1","北京2","北京","北京","北京","北京","北京5"]
 class IndexTab extends Component{
   constructor(props){
@@ -40,6 +41,8 @@ class IndexTab extends Component{
   _renderItem(data){
     return <View style={{height:200,borderWidth:1,flex:1,borderColor: "red",}}>
       <Text>{data.item}</Text>
+      {/* <Text><anButton>Start</anButton></Text> */}
+      
     </View>
   }
   render() {
