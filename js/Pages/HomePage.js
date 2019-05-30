@@ -9,10 +9,20 @@ import {
 import IndexPage from "./IndexPage";
 import DetailPage from "./DetailPage";
 import MyPage from "./MyPage";
+import Day1 from "../test/day1"
 import VideoPage from "./VideoPage";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import navigationUtil from "../Navigator/navigationUtil";
 const TABS = {
+  MyPage: {
+    screen: Day1,
+    navigationOptions: {
+      tabBarLabel: "demo",
+      tabBarIcon: ({ tintColor, focused }) => (
+        <FontAwesome name={"user"} size={26} style={{ color: tintColor }} />
+      )
+    }
+  },
   IndexPage: {
     screen: IndexPage,
     navigationOptions: {
@@ -35,15 +45,7 @@ const TABS = {
       )
     }
   },
-  MyPage: {
-    screen: MyPage,
-    navigationOptions: {
-      tabBarLabel: "我的",
-      tabBarIcon: ({ tintColor, focused }) => (
-        <FontAwesome name={"user"} size={26} style={{ color: tintColor }} />
-      )
-    }
-  }
+ 
 };
 export default class HomePage extends Component {
   constructor(props) {
