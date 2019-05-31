@@ -1,26 +1,122 @@
 import React, { Component } from "react";
 import { Platform,ListView,StyleSheet,StatusBar,Text,TouchableHighlight,View } from 'react-native';
-
-export default class MyPage extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to 我的页面!</Text>
-      </View>
-    );
-  }
+import Util from './utils';
+import PropTypes from 'prop-types'
+class WatchFace extends Component{
+    static propTypes={
+        sectionTime: PropTypes.string.isRequired,
+        totalTime: PropTypes.string.isRequired,
+    };
+    render() {
+        return(
+          <View style={styles.watchFaceContainer}>
+            <Text style={styles.sectionTime}>{this.props.sectionTime}</Text>
+            <Text style={styles.totalTime}>{this.props.totalTime}</Text>
+          </View>
+        )
+    }
+}
+export default class  extends Component {
+    constructor(){
+        super();
+        this.state={
+            totalTime: "00:00.00",
+            sectionTime: "00:00.00",
+        }
+    }
+    render() {
+        return (
+        <View style={styles.watchContainer}>
+            <WatchFace totalTime={this.state.totalTime} sectionTime={this.state.sectionTime}></WatchFace>
+        </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
-});
+    watchContainer:{
+      alignItems: "center",
+      backgroundColor: "#f3f3f3",
+      marginTop: 60,
+    },
+    watchFaceContainer:{
+      width: Util.size.width,
+      paddingTop: 50, paddingLeft: 30, paddingRight:30, paddingBottom:40,
+      backgroundColor: "#fff",
+      borderBottomWidth: 1, borderBottomColor:"#ddd",
+      height: 170,
+    },
+    sectionTime:{
+      fontSize: 20,
+      fontWeight:"100",
+      paddingRight: 30,
+      color: "#555",
+      position:"absolute",
+      left:Util.size.width-140,
+      top:30
+    },
+    totalTime:{
+      fontSize: Util.size.width === 375? 70:60,
+      fontWeight: "100",
+      color: "#222",
+      paddingLeft:20
+    },
+    watchControlContainer:{
+      width: Util.size.width,
+      height: 100,
+      flexDirection:"row",
+      backgroundColor: '#f3f3f3',
+      paddingTop: 30, paddingLeft: 60, paddingRight:60, paddingBottom:0,
+    },
+    btnStart:{
+      width: 70,
+      height: 70,
+      borderRadius: 35,
+      backgroundColor:"#fff",
+      alignItems:"center",
+      justifyContent:"center"
+    },
+    btnStop:{
+      width: 70,
+      height: 70,
+      borderRadius: 35,
+      backgroundColor:"#fff",
+      alignItems:"center",
+      justifyContent:"center"
+    },
+    btnStartText:{
+      fontSize:14,
+      backgroundColor:"transparent"
+    },
+    btnStopText:{
+      fontSize:14,
+      backgroundColor:"transparent",
+      color:"#555"
+    },
+    recordList:{
+      width: Util.size.width,
+      height: Util.size.height - 300,
+      paddingLeft: 15,
+    },
+    recordItem:{
+      height: 40,
+      borderBottomWidth:Util.pixel,borderBottomColor:"#bbb",
+      paddingTop: 5, paddingLeft: 10, paddingRight:10, paddingBottom:5,
+      flexDirection:"row",
+      alignItems:"center"
+    },
+    recordItemTitle:{
+      backgroundColor:"transparent",
+      flex:1,
+      textAlign:"left",
+      paddingLeft:20,
+      color:"#777"
+    },
+    recordItemTime:{
+      backgroundColor:"transparent",
+      flex:1,
+      textAlign:"right",
+      paddingRight:20,
+      color:"#222"
+    },
+  });

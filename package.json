@@ -1,41 +1,43 @@
 {
-    "name": "RN_Demo",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "node node_modules/react-native/local-cli/cli.js start",
-        "test": "jest"
-    },
-    "dependencies": {
-        "@ant-design/react-native": "^3.1.8",
-        "antd-mobile-rn": "^2.3.3",
-        "react": "16.8.3",
-        "react-native": "^0.59.6",
-        "react-native-actionsheet": "^2.4.2",
-        "react-native-charts-wrapper": "^0.5.5",
-        "react-native-check-box": "^2.1.7",
-        "react-native-gesture-handler": "^1.2.1",
-        "react-native-image-picker": "^0.28.1",
-        "react-native-image-zoom-viewer": "^2.2.26",
-        "react-native-quick-actions": "^0.3.10",
-        "react-native-reanimated": "^1.0.1",
-        "react-native-refresh-list-view": "^1.0.10",
-        "react-native-vector-icons": "^6.4.2",
-        "react-navigation": "^3.8.1",
-        "react-navigation-redux-helpers": "^3.0.2",
-        "react-navigation-tabs": "^2.1.3",
-        "react-redux": "^7.0.2",
-        "redux": "^4.0.1"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.4.3",
-        "@babel/runtime": "^7.4.5",
-        "babel-jest": "^24.7.1",
-        "jest": "^24.7.1",
-        "metro-react-native-babel-preset": "^0.53.1",
-        "react-test-renderer": "16.8.3"
-    },
-    "jest": {
-        "preset": "react-native"
-    }
+  "name": "RN_Demo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@ant-design/react-native": "^3.1.8",
+    "antd-mobile-rn": "^2.3.3",
+    "dimensions": "^0.1.0",
+    "react": "16.8.3",
+    "react-native": "^0.59.6",
+    "react-native-actionsheet": "^2.4.2",
+    "react-native-charts-wrapper": "^0.5.5",
+    "react-native-check-box": "^2.1.7",
+    "react-native-gesture-handler": "^1.2.1",
+    "react-native-image-picker": "^0.28.1",
+    "react-native-image-zoom-viewer": "^2.2.26",
+    "react-native-quick-actions": "^0.3.10",
+    "react-native-reanimated": "^1.0.1",
+    "react-native-refresh-list-view": "^1.0.10",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.8.1",
+    "react-navigation-redux-helpers": "^3.0.2",
+    "react-navigation-tabs": "^2.1.3",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.5",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
