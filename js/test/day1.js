@@ -86,6 +86,28 @@ class WatchControl extends Component{
 
 
 }
+class WatchRecord extends Component{
+    static propTypes = {
+          record: PropTypes.array.isRequired,
+      }; 
+  
+    render() {
+      let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
+      theDataSource = ds.cloneWithRows(this.props.record);
+      return (
+        <ListView
+          style={styles.recordList}
+          dataSource={theDataSource}
+          renderRow={(rowData) => 
+            <View style={styles.recordItem}>
+              <Text style={styles.recordItemTitle}>{rowData.title}</Text>
+              <View style={{alignItems: "center"}}>
+                <Text style={styles.recordItemTime}>{rowData.time}</Text>
+              </View>
+            </View>}/>
+      );
+    }
+  }
 export default class  extends Component {
     constructor(){
         super();
@@ -143,7 +165,7 @@ export default class  extends Component {
           ],
          });
       }
-      _startWatch() {
+      _startWatch=() =>{
         if (this.state.resetWatch) {
           this.setState({
             stopWatch: false,
@@ -185,6 +207,7 @@ export default class  extends Component {
       }
     
       _stopWatch() {
+          
         this.setState({
           stopWatch: true
         })
@@ -195,6 +218,7 @@ export default class  extends Component {
         <View style={styles.watchContainer}>
             <WatchFace totalTime={this.state.totalTime} sectionTime={this.state.sectionTime}></WatchFace>
             <WatchControl addRecord={()=>this._addRecord()} clearRecord={()=>this._clearRecord()} startWatch={()=>this._startWatch()} stopWatch={()=>this._stopWatch()}/>
+            <WatchRecord record={this.state.record}></WatchRecord>
         </View>
         );
     }
