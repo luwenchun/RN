@@ -108,11 +108,12 @@ class WatchRecord extends Component{
       );
     }
   }
+
 export default class  extends Component {
     constructor(){
         super();
         this.state={
-            totalTime: "00:00.00",
+            totalTime: "00:00.01",
             sectionTime: "00:00.00",
             recordCounter: 0,
             record:[
